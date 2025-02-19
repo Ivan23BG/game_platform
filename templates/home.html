@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Home</h2>
+<p>Welcome to the game platform! Choose a game to play:</p>
+<ul>
+    <li><a href="{{ url_for('game1') }}">Game 1</a></li>
+    <li><a href="{{ url_for('game2') }}">Game 2</a></li>
+</ul>
+{% endblock %}
