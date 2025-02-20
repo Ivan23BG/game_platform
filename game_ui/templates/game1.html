@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monopoly Board</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .board {
+            position: relative;
+            width: 800px;
+            height: 800px;
+            background-color: #C1E5C0;
+            border: 2px solid #333;
+            display: grid;
+            grid-template-columns: repeat(11, 1fr);
+            grid-template-rows: repeat(11, 1fr);
+            gap: 1px;
+        }
+
+        .space {
+            background-color: #fff;
+            border: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 5px;
+            font-size: 12px;
+            transition: transform 0.2s;
+        }
+
+        .space:hover {
+            transform: scale(1.05);
+            z-index: 1;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        .corner {
+            grid-column: span 1;
+            grid-row: span 1;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* Property color strips */
+        .property-header {
+            height: 20px;
+            margin: -5px -5px 5px -5px;
+        }
+
+        .brown { background-color: #8B4513; }
+        .light-blue { background-color: #87CEEB; }
+        .pink { background-color: #FF69B4; }
+        .orange { background-color: #FFA500; }
+        .red { background-color: #FF0000; }
+        .yellow { background-color: #FFD700; }
+        .green { background-color: #008000; }
+        .blue { background-color: #0000FF; }
+
+        /* Railroad spaces */
+        .railroad {
+            background-color: #fff;
+            text-align: center;
+        }
+
+        /* Utility spaces */
+        .utility {
+            background-color: #fff;
+            text-align: center;
+        }
+
+        /* Chance and Community Chest */
+        .chance {
+            background-color: #FF9800;
+        }
+
+        .community-chest {
+            background-color: #2196F3;
+        }
+
+        /* Center logo */
+        .center-logo {
+            grid-column: 3 / 10;
+            grid-row: 3 / 10;
+            background-color: #C1E5C0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            font-weight: bold;
+            color: #FF0000;
+            transform: rotate(-45deg);
+        }
+
+        .price {
+            font-size: 10px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="board">
+        <!-- Corners -->
+        <div class="corner" style="grid-column: 1 / 3; grid-row: 1 / 3;">GO</div>
+        <div class="corner" style="grid-column: 10 / 12; grid-row: 1 / 3;">JAIL</div>
+        <div class="corner" style="grid-column: 10 / 12; grid-row: 10 / 12;">FREE PARKING</div>
+        <div class="corner" style="grid-column: 1 / 3; grid-row: 10 / 12;">GO TO JAIL</div>
+
+        <!-- Bottom row -->
+        <div class="space"><div class="property-header brown"></div>Mediterranean Avenue<div class="price">$60</div></div>
+        <div class="space community-chest">Community Chest</div>
+        <div class="space"><div class="property-header brown"></div>Baltic Avenue<div class="price">$60</div></div>
+        <div class="space">Income Tax<div class="price">Pay $200</div></div>
+        <div class="space railroad">Reading Railroad<div class="price">$200</div></div>
+        <div class="space"><div class="property-header light-blue"></div>Oriental Avenue<div class="price">$100</div></div>
+        <div class="space chance">Chance</div>
+        <div class="space"><div class="property-header light-blue"></div>Vermont Avenue<div class="price">$100</div></div>
+        <div class="space"><div class="property-header light-blue"></div>Connecticut Avenue<div class="price">$120</div></div>
+
+        <!-- Right column -->
+        <div class="space"><div class="property-header pink"></div>St. Charles Place<div class="price">$140</div></div>
+        <div class="space utility">Electric Company<div class="price">$150</div></div>
+        <div class="space"><div class="property-header pink"></div>States Avenue<div class="price">$140</div></div>
+        <div class="space"><div class="property-header pink"></div>Virginia Avenue<div class="price">$160</div></div>
+        <div class="space railroad">Pennsylvania Railroad<div class="price">$200</div></div>
+        <div class="space"><div class="property-header orange"></div>St. James Place<div class="price">$180</div></div>
+        <div class="space community-chest">Community Chest</div>
+        <div class="space"><div class="property-header orange"></div>Tennessee Avenue<div class="price">$180</div></div>
+        <div class="space"><div class="property-header orange"></div>New York Avenue<div class="price">$200</div></div>
+
+        <!-- Top row -->
+        <div class="space"><div class="property-header red"></div>Kentucky Avenue<div class="price">$220</div></div>
+        <div class="space chance">Chance</div>
+        <div class="space"><div class="property-header red"></div>Indiana Avenue<div class="price">$220</div></div>
+        <div class="space"><div class="property-header red"></div>Illinois Avenue<div class="price">$240</div></div>
+        <div class="space railroad">B. & O. Railroad<div class="price">$200</div></div>
+        <div class="space"><div class="property-header yellow"></div>Atlantic Avenue<div class="price">$260</div></div>
+        <div class="space"><div class="property-header yellow"></div>Ventnor Avenue<div class="price">$260</div></div>
+        <div class="space utility">Water Works<div class="price">$150</div></div>
+        <div class="space"><div class="property-header yellow"></div>Marvin Gardens<div class="price">$280</div></div>
+
+        <!-- Left column -->
+        <div class="space"><div class="property-header green"></div>Pacific Avenue<div class="price">$300</div></div>
+        <div class="space"><div class="property-header green"></div>North Carolina Avenue<div class="price">$300</div></div>
+        <div class="space community-chest">Community Chest</div>
+        <div class="space"><div class="property-header green"></div>Pennsylvania Avenue<div class="price">$320</div></div>
+        <div class="space railroad">Short Line<div class="price">$200</div></div>
+        <div class="space chance">Chance</div>
+        <div class="space"><div class="property-header blue"></div>Park Place<div class="price">$350</div></div>
+        <div class="space">Luxury Tax<div class="price">Pay $100</div></div>
+        <div class="space"><div class="property-header blue"></div>Boardwalk<div class="price">$400</div></div>
+
+        <!-- Center logo -->
+        <div class="center-logo">MONOPOLY</div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.space').forEach(space => {
+            space.addEventListener('click', () => {
+                const propertyName = space.textContent.split('$')[0].trim();
+                alert(`You landed on ${propertyName}`);
+            });
+        });
+    </script>
+</body>
+</html>
